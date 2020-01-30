@@ -24,7 +24,7 @@ extensions:
 
 ## Configuration
 
-Specify same driver you use for doctrine dbal connection, all of [Oroinc/DoctrineExtensions](https://github.com/oroinc/doctrine-extensions) custom DQL functions for given driver will be registered.
+Specify the same driver as for the Doctrine DBAL connection, all of [Oroinc/DoctrineExtensions](https://github.com/oroinc/doctrine-extensions) custom DQL functions for the given driver will be registered.
 
 ```yaml
 nettrine.extensions.oroinc:
@@ -33,4 +33,4 @@ nettrine.extensions.oroinc:
     # postgre - 'pgsql', 'postgres', 'postgresql', 'pdo_pgsql'
 ```
 
-[Field types](https://github.com/oroinc/doctrine-extensions#field-types) `MoneyType`, `PercentType`, `ObjectType` and `ArrayType` are always registered to your `Connection`
+[Field types](https://github.com/oroinc/doctrine-extensions#field-types) `MoneyType`, `PercentType`, `ObjectType` and `ArrayType` are always registered to your `Connection`.
