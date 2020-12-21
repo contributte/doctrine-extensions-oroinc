@@ -1,8 +1,8 @@
 # Nettrine Extensions Oroinc
 
-Doctrine ([Oroinc/DoctrineExtensions](https://github.com/oroinc/doctrine-extensions)) extension for Nette Framework
-
 ## Content
+
+Doctrine ([Oroinc/DoctrineExtensions](https://github.com/oroinc/doctrine-extensions)) extension for Nette Framework
 
 - [Setup](#setup)
 - [Configuration](#configuration)
