@@ -46,10 +46,6 @@ See [how to contribute](https://contributte.org) to this package. This package i
     <img width="80" height="80" src="https://avatars2.githubusercontent.com/u/538058?v=3&s=80">
 </a>
 
-<a href="https://github.com/mabar">
-    <img width="80" height="80" src="https://avatars2.githubusercontent.com/u/20974277?v=3&s=80">
-</a>
-
 -----
 
 Consider to [support](https://contributte.org/partners.html) **contributte** development team.
