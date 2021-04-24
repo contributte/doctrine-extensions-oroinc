@@ -2,8 +2,7 @@
 
 <p align=center>
   <a href="https://github.com/nettrine/extensions-oroinc/actions"><img src="https://badgen.net/github/checks/nettrine/extensions-oroinc/master?cache=300"></a>
-  <a href="https://coveralls.io/r/nettrine/extensions-oroinc"><img src="https://img.shields.io/coveralls/nettrine/extensions-oroinc.svg?style=flat-square"></a>
-  <a href="https://github.com/phpstan/phpstan"><img src="https://img.shields.io/badge/PHPStan-enabled-brightgreen.svg?style=flat-square"></a>
+  <a href="https://coveralls.io/r/nettrine/extensions-oroinc"><img src="https://badgen.net/coveralls/c/github/nettrine/extensions-oroinc?cache=300"></a>
   <a href="https://packagist.org/packages/nettrine/extensions-oroinc"><img src="https://badgen.net/packagist/dm/nettrine/extensions-oroinc"></a>
   <a href="https://packagist.org/packages/nettrine/extensions-oroinc"><img src="https://badgen.net/packagist/v/nettrine/extensions-oroinc"></a>
 </p>
@@ -35,8 +34,8 @@ For details on how to use this package, check out our [documentation](.docs).
 
 | State       | Version | Branch   | Nette | PHP     |
 |-------------|---------|----------|-------|---------|
-| dev         | `^0.1`  | `master` | 3.0+  | `^7.2   |
-
+| dev         | `^0.2`  | `master` | 3.0+  | `>=7.2` |
+| stable      | `^0.1`  | `master` | 3.0+  | `>=7.2` |
 
 ## Development
 
