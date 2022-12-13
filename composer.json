@@ -4,7 +4,7 @@
   "keywords": ["nette", "doctrine", "orm", "dbal", "database"],
   "type": "library",
   "license": "MIT",
-  "homepage": "https://github.com/nettrine/extensions-oroinc",
+  "homepage": "https://github.com/contributte/doctrine-extensions-oroinc",
   "authors": [
     {
       "name": "Milan Felix Šulc",

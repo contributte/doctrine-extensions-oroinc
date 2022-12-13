@@ -1,14 +1,14 @@
-![](https://heatbadger.now.sh/github/readme/nettrine/extensions-oroinc/)
+![](https://heatbadger.now.sh/github/readme/contributte/doctrine-extensions-oroinc/)
 
 <p align=center>
-  <a href="https://github.com/nettrine/extensions-oroinc/actions"><img src="https://badgen.net/github/checks/nettrine/extensions-oroinc/master?cache=300"></a>
+  <a href="https://github.com/contributte/doctrine-extensions-oroinc/actions"><img src="https://badgen.net/github/checks/nettrine/extensions-oroinc/master?cache=300"></a>
   <a href="https://coveralls.io/r/nettrine/extensions-oroinc"><img src="https://badgen.net/coveralls/c/github/nettrine/extensions-oroinc?cache=300"></a>
   <a href="https://packagist.org/packages/nettrine/extensions-oroinc"><img src="https://badgen.net/packagist/dm/nettrine/extensions-oroinc"></a>
   <a href="https://packagist.org/packages/nettrine/extensions-oroinc"><img src="https://badgen.net/packagist/v/nettrine/extensions-oroinc"></a>
 </p>
 <p align=center>
   <a href="https://packagist.org/packages/nettrine/extensions-oroinc"><img src="https://badgen.net/packagist/php/nettrine/extensions-oroinc"></a>
-  <a href="https://github.com/nettrine/extensions-oroinc"><img src="https://badgen.net/github/license/nettrine/extensions-oroinc"></a>
+  <a href="https://github.com/contributte/doctrine-extensions-oroinc"><img src="https://badgen.net/github/license/contributte/doctrine-extensions-oroinc"></a>
   <a href="https://bit.ly/ctteg"><img src="https://badgen.net/badge/support/gitter/cyan"></a>
   <a href="https://bit.ly/cttfo"><img src="https://badgen.net/badge/support/forum/yellow"></a>
   <a href="https://contributte.org/partners.html"><img src="https://badgen.net/badge/sponsor/donations/F96854"></a>

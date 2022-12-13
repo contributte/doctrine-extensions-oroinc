@@ -1,4 +1,4 @@
-# Nettrine Extensions Oroinc
+# Contributte Doctrine Extensions Oroinc
 
 ## Content
 
