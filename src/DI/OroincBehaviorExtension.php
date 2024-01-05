@@ -15,7 +15,17 @@ use Oro\DBAL\Types\ArrayType;
 use Oro\DBAL\Types\MoneyType;
 use Oro\DBAL\Types\ObjectType;
 use Oro\DBAL\Types\PercentType;
-use Oro\ORM\Query\AST\Functions;
+use Oro\ORM\Query\AST\Functions\Cast;
+use Oro\ORM\Query\AST\Functions\DateTime\ConvertTz;
+use Oro\ORM\Query\AST\Functions\Numeric\Pow;
+use Oro\ORM\Query\AST\Functions\Numeric\Round;
+use Oro\ORM\Query\AST\Functions\Numeric\Sign;
+use Oro\ORM\Query\AST\Functions\Numeric\TimestampDiff;
+use Oro\ORM\Query\AST\Functions\SimpleFunction;
+use Oro\ORM\Query\AST\Functions\String\ConcatWs;
+use Oro\ORM\Query\AST\Functions\String\DateFormat;
+use Oro\ORM\Query\AST\Functions\String\GroupConcat;
+use Oro\ORM\Query\AST\Functions\String\Replace;
 use stdClass;
 
 /**
@@ -25,11 +35,8 @@ final class OroincBehaviorExtension extends CompilerExtension
 {
 
 	private const OVERRIDING_TYPES = [
-		Types::ARRAY => [
+		Types::JSON => [
 			ArrayType::class,
-			'string',
-		],
-		Types::OBJECT => [
 			ObjectType::class,
 			'string',
 		],
@@ -50,8 +57,13 @@ final class OroincBehaviorExtension extends CompilerExtension
 	{
 		return Expect::structure([
 			'driver' => Expect::anyOf(
-				'mysql', 'mysql2', 'pdo_mysql', // mysql
-				'pgsql', 'postgres', 'postgresql', 'pdo_pgsql' // postgre
+				'mysql',
+				'mysql2',
+				'pdo_mysql', // mysql
+				'pgsql',
+				'postgres',
+				'postgresql',
+				'pdo_pgsql' // postgre
 			),
 		]);
 	}
@@ -74,8 +86,8 @@ final class OroincBehaviorExtension extends CompilerExtension
 			foreach (self::OVERRIDING_TYPES + self::NEW_TYPES as $name => [$className, $dbType]) {
 				$connectionDefinition->addSetup('?->getDatabasePlatform()->registerDoctrineTypeMapping(?, ?)', [
 					'@self',
-				$dbType,
-				$name,
+					$dbType,
+					$name,
 				]);
 			}
 		}
@@ -141,40 +153,40 @@ final class OroincBehaviorExtension extends CompilerExtension
 	private function registerCrossPlatformFunctions(ServiceDefinition $configurationDefinition): void
 	{
 		$datetimeFunctions = [
-			'date' => Functions\SimpleFunction::class,
-			'time' => Functions\SimpleFunction::class,
-			'timestamp' => Functions\SimpleFunction::class,
-			'convert_tz' => Functions\DateTime\ConvertTz::class,
+			'date' => SimpleFunction::class,
+			'time' => SimpleFunction::class,
+			'timestamp' => SimpleFunction::class,
+			'convert_tz' => ConvertTz::class,
 		];
 		$this->registerDatetimeFunctions($configurationDefinition, $datetimeFunctions);
 
 		$numericFunctions = [
-			'timestampdiff' => Functions\Numeric\TimestampDiff::class,
-			'dayofyear' => Functions\SimpleFunction::class,
-			'dayofmonth' => Functions\SimpleFunction::class,
-			'dayofweek' => Functions\SimpleFunction::class,
-			'week' => Functions\SimpleFunction::class,
-			'day' => Functions\SimpleFunction::class,
-			'hour' => Functions\SimpleFunction::class,
-			'minute' => Functions\SimpleFunction::class,
-			'month' => Functions\SimpleFunction::class,
-			'quarter' => Functions\SimpleFunction::class,
-			'second' => Functions\SimpleFunction::class,
-			'year' => Functions\SimpleFunction::class,
-			'sign' => Functions\Numeric\Sign::class,
-			'pow' => Functions\Numeric\Pow::class,
-			'round' => Functions\Numeric\Round::class,
-			'ceil' => Functions\SimpleFunction::class,
+			'timestampdiff' => TimestampDiff::class,
+			'dayofyear' => SimpleFunction::class,
+			'dayofmonth' => SimpleFunction::class,
+			'dayofweek' => SimpleFunction::class,
+			'week' => SimpleFunction::class,
+			'day' => SimpleFunction::class,
+			'hour' => SimpleFunction::class,
+			'minute' => SimpleFunction::class,
+			'month' => SimpleFunction::class,
+			'quarter' => SimpleFunction::class,
+			'second' => SimpleFunction::class,
+			'year' => SimpleFunction::class,
+			'sign' => Sign::class,
+			'pow' => Pow::class,
+			'round' => Round::class,
+			'ceil' => SimpleFunction::class,
 		];
 		$this->registerNumericFunctions($configurationDefinition, $numericFunctions);
 
 		$stringFunctions = [
-			'md5' => Functions\SimpleFunction::class,
-			'group_concat' => Functions\String\GroupConcat::class,
-			'concat_ws' => Functions\String\ConcatWs::class,
-			'cast' => Functions\Cast::class,
-			'replace' => Functions\String\Replace::class,
-			'date_format' => Functions\String\DateFormat::class,
+			'md5' => SimpleFunction::class,
+			'group_concat' => GroupConcat::class,
+			'concat_ws' => ConcatWs::class,
+			'cast' => Cast::class,
+			'replace' => Replace::class,
+			'date_format' => DateFormat::class,
 		];
 		$this->registerStringFunctions($configurationDefinition, $stringFunctions);
 	}
