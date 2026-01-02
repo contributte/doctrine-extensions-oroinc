@@ -4,16 +4,13 @@ namespace Nettrine\Extensions\Oroinc\DI;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Types\Type;
-use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Configuration;
 use Nette\DI\CompilerExtension;
 use Nette\DI\Definitions\ServiceDefinition;
 use Nette\PhpGenerator\ClassType;
 use Nette\Schema\Expect;
 use Nette\Schema\Schema;
-use Oro\DBAL\Types\ArrayType;
 use Oro\DBAL\Types\MoneyType;
-use Oro\DBAL\Types\ObjectType;
 use Oro\DBAL\Types\PercentType;
 use Oro\ORM\Query\AST\Functions\Cast;
 use Oro\ORM\Query\AST\Functions\DateTime\ConvertTz;
@@ -33,14 +30,6 @@ use stdClass;
  */
 final class OroincBehaviorExtension extends CompilerExtension
 {
-
-	private const OVERRIDING_TYPES = [
-		Types::JSON => [
-			ArrayType::class,
-			ObjectType::class,
-			'string',
-		],
-	];
 
 	private const NEW_TYPES = [
 		MoneyType::TYPE => [
@@ -83,7 +72,7 @@ final class OroincBehaviorExtension extends CompilerExtension
 		foreach ($builder->findByType(Connection::class) as $connectionDefinition) {
 			assert($connectionDefinition instanceof ServiceDefinition);
 
-			foreach (self::OVERRIDING_TYPES + self::NEW_TYPES as $name => [$className, $dbType]) {
+			foreach (self::NEW_TYPES as $name => [$className, $dbType]) {
 				$connectionDefinition->addSetup('?->getDatabasePlatform()->registerDoctrineTypeMapping(?, ?)', [
 					'@self',
 					$dbType,
@@ -96,15 +85,6 @@ final class OroincBehaviorExtension extends CompilerExtension
 	public function afterCompile(ClassType $class): void
 	{
 		$initialize = $class->getMethod('initialize');
-
-		foreach (self::OVERRIDING_TYPES as $name => [$className, $dbType]) {
-			$initialize->addBody(sprintf(
-				'%s::overrideType(\'%s\', \'%s\');',
-				Type::class,
-				$name,
-				$className
-			));
-		}
 
 		foreach (self::NEW_TYPES as $name => [$className, $dbType]) {
 			$initialize->addBody(sprintf(
