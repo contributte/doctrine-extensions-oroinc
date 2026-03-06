@@ -2,7 +2,7 @@
 
 <p align=center>
   <a href="https://github.com/contributte/doctrine-extensions-oroinc/actions"><img src="https://badgen.net/github/checks/nettrine/extensions-oroinc/master?cache=300"></a>
-  <a href="https://coveralls.io/r/nettrine/extensions-oroinc"><img src="https://badgen.net/coveralls/c/github/nettrine/extensions-oroinc?cache=300"></a>
+  <a href="https://codecov.io/gh/contributte/doctrine-extensions-oroinc"><img src="https://badgen.net/codecov/c/github/contributte/doctrine-extensions-oroinc?cache=300"></a>
   <a href="https://packagist.org/packages/nettrine/extensions-oroinc"><img src="https://badgen.net/packagist/dm/nettrine/extensions-oroinc"></a>
   <a href="https://packagist.org/packages/nettrine/extensions-oroinc"><img src="https://badgen.net/packagist/v/nettrine/extensions-oroinc"></a>
 </p>
