@@ -18,17 +18,7 @@
 Website 🚀 <a href="https://contributte.org">contributte.org</a> | Contact 👨🏻‍💻 <a href="https://f3l1x.io">f3l1x.io</a> | Twitter 🐦 <a href="https://twitter.com/contributte">@contributte</a>
 </p>
 
-## Usage
-
-To install latest version of `nettrine/extensions-oroinc` use [Composer](https://getcomposer.org).
-
-```
-$ composer require nettrine/extensions-oroinc
-```
-
-## Documentation
-
-For details on how to use this package, check out our [documentation](.docs).
+Doctrine extension for Nette Framework integrating [Oroinc DoctrineExtensions](https://github.com/oroinc/doctrine-extensions) custom DQL functions and DBAL field types.
 
 ## Versions
 
@@ -36,6 +26,36 @@ For details on how to use this package, check out our [documentation](.docs).
 |-------------|---------|----------|-------|---------|
 | dev         | `^0.4`  | `master` | 3.2+  | `>=8.2` |
 | stable      | `^0.3`  | `master` | 3.2+  | `>=8.2` |
+
+## Installation
+
+To install latest version of `nettrine/extensions-oroinc` use [Composer](https://getcomposer.org).
+
+```bash
+composer require nettrine/extensions-oroinc
+```
+
+## Usage
+
+Register extension in your NEON configuration.
+
+```yaml
+extensions:
+    nettrine.extensions.oroinc: Nettrine\Extensions\Oroinc\DI\OroincBehaviorExtension
+```
+
+## Configuration
+
+Specify the same driver as for the Doctrine DBAL connection, all of [Oroinc DoctrineExtensions](https://github.com/oroinc/doctrine-extensions) custom DQL functions for the given driver will be registered.
+
+```yaml
+nettrine.extensions.oroinc:
+    driver: mysql
+    # mysql - 'mysql', 'mysql2', 'pdo_mysql'
+    # postgre - 'pgsql', 'postgres', 'postgresql', 'pdo_pgsql'
+```
+
+[Field types](https://github.com/oroinc/doctrine-extensions#field-types) include `MoneyType`, `PercentType`, `ObjectType` and `ArrayType`. This package wires the custom `MoneyType` and `PercentType` types into your `Connection`.
 
 ## Development
 
