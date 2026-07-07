@@ -55,7 +55,7 @@ nettrine.extensions.oroinc:
     # postgre - 'pgsql', 'postgres', 'postgresql', 'pdo_pgsql'
 ```
 
-The DBAL field types registered by this package, `MoneyType` and `PercentType`, are always added to your `Connection`.
+[Field types](https://github.com/oroinc/doctrine-extensions#field-types) include `MoneyType`, `PercentType`, `ObjectType` and `ArrayType`. This package wires the custom `MoneyType` and `PercentType` types into your `Connection`.
 
 ## Development
 
