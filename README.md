@@ -55,7 +55,7 @@ nettrine.extensions.oroinc:
     # postgre - 'pgsql', 'postgres', 'postgresql', 'pdo_pgsql'
 ```
 
-`MoneyType` and `PercentType` are always registered to your `Connection`.
+The DBAL field types registered by this package, `MoneyType` and `PercentType`, are always added to your `Connection`.
 
 ## Development
 
